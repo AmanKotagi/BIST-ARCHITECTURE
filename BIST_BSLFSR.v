@@ -404,93 +404,7 @@ module alu(
 endmodule
 
 
-module pattern_gen_A (
-    input clk, reset,
-    output reg [7:0] A  
-);
 
-    reg [7:0] Temp;  // Register to store XORShift output
-
-    
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            A <= 8'b00000010;  
-            Temp <= 8'b00000010; 
-        end
-        else begin
-            
-           
-            A[0] <= (Temp[7]) ? Temp[0] : Temp[1];  
-            A[1] <= (Temp[7]) ? Temp[1] : Temp[0];  
-            A[2] <= (Temp[7]) ? Temp[2] : Temp[3];  
-            A[3] <= (Temp[7]) ? Temp[3] : Temp[2];  
-            A[4] <= (Temp[7]) ? Temp[4] : Temp[5];  
-            A[5] <= (Temp[7]) ? Temp[5] : Temp[4];  
-            A[6] <= Temp[6];  
-            A[7] <= Temp[7];
-          //A <= (Temp[7]) ? (Temp) : ({Temp[7],Temp[6],Temp[4],Temp[5],Temp[2],Temp[3],Temp[0],Temp[1]});
-            
-            Temp<=A;
-            // XORShift Operation
-            Temp[0] <= ((Temp[5] ^ Temp[7]) ^ Temp[4]) ^ Temp[3];
-            Temp[1] <= Temp[0];
-            Temp[2] <= Temp[1];
-            Temp[3] <= Temp[2];
-            Temp[4] <= Temp[3];
-            Temp[5] <= Temp[4];
-            Temp[6] <= Temp[5];
-            Temp[7] <= Temp[6];
-
-           
-        end
-    end
-endmodule
-
-
-module pattern_gen_B (
-    input clk, reset,
-    output reg [7:0] B  
-);
-
-    reg [7:0] Temp;  // Register to store XORShift output
-
-    
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            B <= 8'b00000010;  
-            Temp <= 8'b00000010; 
-        end
-        else begin
-            
-           
-            B[0] <= (Temp[7]) ? Temp[0] : Temp[1];  
-            B[1] <= (Temp[7]) ? Temp[1] : Temp[0];  
-            B[2] <= (Temp[7]) ? Temp[2] : Temp[3];  
-            B[3] <= (Temp[7]) ? Temp[3] : Temp[2];  
-            B[4] <= (Temp[7]) ? Temp[4] : Temp[5];  
-            B[5] <= (Temp[7]) ? Temp[5] : Temp[4];  
-            B[6] <= Temp[6];  
-            B[7] <= Temp[7];
-         //  B <= (Temp[7]) ? (Temp) : ({Temp[7],Temp[6],Temp[4],Temp[5],Temp[2],Temp[3],Temp[0],Temp[1]});
-            
-            Temp<=B;
-            // XORShift Operation
-            Temp[0] <= ((Temp[5] ^ Temp[7]) ^ Temp[4]) ^ Temp[3];
-            Temp[1] <= Temp[0];
-            Temp[2] <= Temp[1];
-            Temp[3] <= Temp[2];
-            Temp[4] <= Temp[3];
-            Temp[5] <= Temp[4];
-            Temp[6] <= Temp[5];
-            Temp[7] <= Temp[6];
-
-           
-        end
-    end
-endmodule
-/*
-
-//Assign
 
 module pattern_gen_A (
     input clk, reset,
@@ -541,8 +455,6 @@ reg[7:0] Bin = 8'b00000001;
     end
 assign B = (Bin[7] == 1'b1) ? Bin : {Bin[7:6], Bin[4], Bin[5], Bin[2], Bin[3], Bin[0], Bin[1]};
 endmodule
-
-*/
 
 
 
