@@ -98,7 +98,7 @@ The general data flow of the testing architecture is as follows:
 
 This work is officially published and recognized in the **ICTDsC 2024 Springer Book Series**.
 
-> **Citation:** [Insert Citation Here if available]
+> **Link:** [(https://link.springer.com/chapter/10.1007/978-981-96-4543-5_22)]
 
 ---
 
