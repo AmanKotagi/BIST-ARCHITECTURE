@@ -1,12 +1,9 @@
-<h1 align="center">🔧 BIST ARCHITECTURE USING PRPG VARIANTS</h1>
+<h1 align="center"> BIST ARCHITECTURE USING PRPG VARIANTS</h1>
 
 <h3 align="center">LFSR • CFSR • BS-LFSR • BS-CFSR</h3>
 
-<h4 align="center">"Efficient on-chip test solutions begin with smarter pattern generation."</h4>
 
-<p align="center">
-<img src="https://komarev.com/ghpvc/?username=BIST-PRPG&label=Project%20Views&color=0e75b6&style=flat" alt="Project Views" />
-</p>
+
 
 <p align="center">
   <a href="#-about-the-project">About</a> •
